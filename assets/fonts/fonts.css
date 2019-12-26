@@ -1,0 +1,7 @@
+@font-face {
+    font-family: Amatic;
+    src: local('Amatic_SC'), local('Amatic SC'), local('Amatic'), local('Amatic Regular'),
+    url(~assets/fonts/AmaticSC-Regular.ttf) format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}

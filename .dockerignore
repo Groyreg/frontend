@@ -1,0 +1,16 @@
+.gradle
+gradlew
+gradle
+
+.nuxt
+.idea
+.dockerignore
+.git
+.gitignore
+
+node_modules
+Dockerfile*
+docker-compose*
+
+*.md
+*.kts

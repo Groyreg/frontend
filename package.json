@@ -1,0 +1,25 @@
+{
+  "name": "colaba",
+  "description": "Создать колабу легко",
+  "author": "Dima Koltovich",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@mapbox/mapbox-gl-geocoder": "^4.5.1",
+    "@nuxtjs/auth": "^4.8.4",
+    "@nuxtjs/axios": "^5.9.0",
+    "@nuxtjs/dotenv": "^1.4.1",
+    "mapbox-gl": "^1.6.1",
+    "nuxt": "^2.11.0"
+  },
+  "devDependencies": {
+    "@mdi/js": "^4.7.95",
+    "@nuxtjs/moment": "^1.4.0",
+    "@nuxtjs/vuetify": "^1.9.1"
+  }
+}

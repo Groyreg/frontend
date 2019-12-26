@@ -1,0 +1,14 @@
+#  docker-compose up --build --force-recreate
+
+version: "3.7"
+
+services:
+  frontend:
+    container_name: frontend
+    build: .
+    restart: always
+
+networks:
+  default:
+    external:
+      name: spring-vue_default
