@@ -1,7 +1,7 @@
 {
   "name": "colaba",
-  "description": "Создать колабу легко",
-  "author": "Dima Koltovich",
+  "description": "Easy communication",
+  "author": "steklopod",
   "private": true,
   "scripts": {
     "dev": "nuxt",
