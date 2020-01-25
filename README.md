@@ -1,4 +1,4 @@
-## 🤖 [`FRONTEND`](https://github.com/steklopod/frontend/actions) ![Frontend CI](https://github.com/steklopod/frontend/workflows/Frontend%20CI/badge.svg)  [![Build Status](https://travis-ci.com/steklopod/frontend.svg?branch=master)](https://travis-ci.com/steklopod/frontend)
+## 🤖 [`FRONTEND`](https://github.com/steklopod/frontend/actions) ![Frontend CI](https://github.com/steklopod/frontend/workflows/Frontend%20CI/badge.svg)  
 
 ## API documentation: [swagger](https://colaba.online/api/swagger-ui.html)
 
