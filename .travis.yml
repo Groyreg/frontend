@@ -3,10 +3,9 @@ node_js:
   - "node"
   - stable
 
-cache:
-  npm: true
-
-install: skip
+#cache:
+#  npm: true
+#install: skip
 
 script:
   - npm install
