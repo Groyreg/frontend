@@ -25,7 +25,6 @@ export default {
     css: ['~assets/fonts/fonts.css' /*'~/assets/style/route_transitions.scss' */],
 
     vuetify: {
-        treeShake: true,
         defaultAssets: false,
         icons: {iconfont: 'mdiSvg', values: overriddenMdiIcons},
         lang: {locales: {ru, en}, current: 'ru'},
