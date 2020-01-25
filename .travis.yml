@@ -11,6 +11,7 @@ install: skip
 script:
   - npm install
   - npm build
+  - npm generate
 
 notifications:
   email:
