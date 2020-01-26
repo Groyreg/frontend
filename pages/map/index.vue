@@ -4,6 +4,9 @@
 </template>
 
 <script>
+    import 'assets/style/mapbox-gl.css';
+    import 'assets/style/mapbox-gl-geocoder.css'
+
     export default {
         // transition: 'bounce',
 
@@ -17,27 +20,26 @@
             }
         },
         async mounted() {
-            this.createMap();
+            await this.createMap();
             document.querySelector('.mapboxgl-ctrl-geocoder input').focus();
         },
 
         methods: {
-
             async createMap() {
                 const mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
                 const MapboxGeocoder = require('@mapbox/mapbox-gl-geocoder');
 
                 mapboxgl.accessToken = process.env.MAP_API_TOKEN;
 
-                let mapboxGeocoder = new MapboxGeocoder({
+                const mapboxGeocoder = new MapboxGeocoder({
                     accessToken: mapboxgl.accessToken,
-                    mapboxgl: mapboxgl,
+                    mapboxgl,
                     countries: 'ru',
                     language: 'ru-RU',
                     placeholder: "Найти адрес"
                 });
 
-                let geolocateControl = new mapboxgl.GeolocateControl({
+                const geolocateControl = new mapboxgl.GeolocateControl({
                     positionOptions: {enableHighAccuracy: false, timeout: 4000},
                     trackUserLocation: true,
                     fitBoundsOptions: {maxZoom: 15}
