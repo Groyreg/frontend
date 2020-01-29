@@ -1,72 +1,62 @@
 <template>
-    <v-container>
+    <v-container class="auth">
 
         <v-row align="center">
 
-            <v-col cols="5" class="hidden-sm-and-down">
-                <v-img contain max-height="65vh" :src="woman"/>
-            </v-col>
-
-
             <v-col md="6" cols="12">
 
-                <v-card elevation="10">
+                <v-card elevation="10" class="auth__form">
                     <v-card-title primary-title>
-                        <div class="headline">Авторизация</div>
+                        <div class="auth__form-steps">Шаг {{tabs[0].name}} из {{tabs.length}}</div>
+                        <div class="auth__form-title">{{authType}}</div>
                     </v-card-title>
-
-
-                    <v-container>
-                        <v-form ref="form" v-model="valid" lazy-validation>
-
-                            <v-text-field v-model="userPrincipal.email"
-                                          :rules="emailRules" label="E-mail" clearable required/>
+                    <div class="auth__progress">
+                        <div class="auth__progress-item _active" />
+                        <div class="auth__progress-item" />
+                        <div class="auth__progress-item" />
+                    </div>
+                    <div class="auth__form-wrapper">
+                        <v-form ref="form" v-model="valid" lazy-validation class="auth__form-form">
 
                             <v-text-field
+                                    placeholder=" "
+                                    v-model="userPrincipal.email"
+                                    :rules="emailRules"
+                                    label="E-mail"
+                                    clearable
+                                    required
+                            />
+
+                            <v-text-field
+                                    placeholder=" "
                                     v-model="userPrincipal.password"
                                     :rules="[rules.required, rules.min]"
                                     label="Пароль"
                                     :append-icon="showPassword ? mdiEyeOutline : mdiEyeOffOutline"
                                     :type="showPassword ? 'text' : 'password'"
-                                    @click:append="showPassword = !showPassword">
+                                    @click:append="showPassword = !showPassword"
+                            >
                             </v-text-field>
+                            <v-select
+                                placeholder=" "
+                                :items="items"
+                                label="Город для теста"
+                            />
 
                         </v-form>
-                    </v-container>
-
-                    <v-container id="actions">
-                        <v-row>
-                            <v-col cols="12" md="4">
-                                <v-btn elevation="10" color="secondary" block @click="login" :disabled="!valid">Войти
-                                </v-btn>
-                            </v-col>
-
-                            <v-col cols="12" md="4">
-                                <v-btn block :href="googleLink" color="blue-grey" class="white--text">Google
-                                    <v-icon right>{{mdiGoogle}}</v-icon>
-                                </v-btn>
-                            </v-col>
-
-                            <v-col cols="12" md="4">
-                                <v-btn block :href="facebookLink" color="indigo" class="white--text ">Facebook
-                                    <v-icon right>{{mdiFacebook}}</v-icon>
-                                </v-btn>
-                            </v-col>
-                        </v-row>
-
-                        <v-row>
-                            <v-col cols="12">
-                                <v-btn block @click="register" outlined :disabled="!valid">Регистрация</v-btn>
-                            </v-col>
-                        </v-row>
-
-                        <v-row justify="center">
-                            <v-btn small text @click="recover" color="accent" class="ma-2" v-show="needRecovery">
-                                Воставновить
+                        <div class="auth__form-buttons">
+                            <a href="#" class="auth__link" @click="recover" v-show="needRecovery">Забыли пароль?</a>
+                            <v-btn color="primary" block @click="login" :disabled="!valid">Далее</v-btn>
+                            <v-btn block :href="facebookLink" class="_facebook">Войти через&nbsp;<strong>Facebook</strong>
+                                <v-icon left>{{mdiFacebook}}</v-icon>
                             </v-btn>
-                        </v-row>
-
-                    </v-container>
+                            <a href="#" class="auth__link" @click="register" :disabled="!valid">Зарегистрироваться</a>
+                        </div>
+                        <div class="auth__form-policy">
+                            <span>Я соглашаюсь с условиями использования и подтверждаю,
+                                что ознакомился с политикой конфиденциальности</span>
+                        </div>
+                    </div>
                 </v-card>
             </v-col>
 
@@ -139,6 +129,22 @@
                     snackbarText: 'error',
                     color: 'error'
                 },
+                tabs: [
+                  {
+                    name: '1',
+                    active: true
+                  },
+                  {
+                    name: '2',
+                    active: false
+                  },
+                  {
+                    name: '3',
+                    active: false
+                  }
+                ],
+                items: ['Foo', 'Bar', 'Fizz', 'Buzz'],
+                authType: 'Регистрация'
             };
         },
         methods: {

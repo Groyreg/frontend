@@ -14,3 +14,14 @@
 //$material-light: map-merge($material-light, (
 //        background: map-get($blue, 'lighten-5')
 //));
+
+// Colors
+$bgcColor: rgb(217, 234, 238);
+$blue: rgb(0, 191, 255);
+$black: #000;
+$white: #fff;
+$grey-very-light: rgb(245, 247, 248);
+$grey-light: rgb(184, 193, 196);
+$grey-lighter: rgb(162, 175, 180);
+$grey-dark: rgba(242, 245, 246, 0.4);
+$green-light: rgb(57, 233, 135);

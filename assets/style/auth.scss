@@ -1,0 +1,113 @@
+.auth {
+  &__progress {
+    display: flex;
+
+    &-item {
+      width: 33.33%;
+      height: 4px;
+      background-color: rgba(0, 0, 0, 0.3);
+
+      &._active,
+      &._done {
+        background-color: $blue;
+      }
+    }
+  }
+
+  &__link {
+    font-size: 12px;
+    color: $blue !important;
+  }
+
+  &__form {
+    max-width: 470px;
+    border-radius: 25px !important;
+
+    &-wrapper {
+      padding: 18px 30px;
+      text-align: center;
+    }
+
+    &-steps {
+      margin-bottom: 16px;
+      line-height: initial;
+      font-size: 12px;
+      color: $grey-light;
+    }
+
+    &-title {
+      line-height: initial;
+      color: $white;
+    }
+
+    &-form {
+
+    }
+
+    &-buttons {
+      margin-bottom: 18px;
+    }
+
+    &-policy {
+      padding: 0 40px;
+      font-size: 10px;
+      color: $grey-lighter;
+      text-align: center;
+    }
+
+    .v-card {
+      &__title {
+        padding: 29px 35px 15px;
+        display: block;
+        background: $black;
+      }
+    }
+
+    .v-text-field {
+      margin-bottom: 16px;
+
+      .v-label {
+        top: -5px;
+        left: -11px !important;
+        color: rgba(63, 64, 64, 0.5);
+      }
+    }
+
+    .v-input {
+      &__slot {
+        padding-left: 11px;
+        padding-right: 11px;
+        background-color: rgb(230, 235, 237);
+        border: 1px solid rgb(230, 235, 237);
+        border-radius: 5px !important;
+
+        &::before,
+        &::after {
+          display: none;
+        }
+      }
+    }
+
+    .error--text {
+      .v-input__slot {
+        border-color: rgba(255, 64, 100, 0.14);
+        background-color: rgba(255, 64, 100, 0.14);
+      }
+
+      .v-text-field__slot {
+        input {
+          color: rgb(250, 104, 120) !important;
+        }
+      }
+
+      .v-messages__message {
+        color: rgb(250, 104, 120);
+      }
+    }
+  }
+}
+
+.v-application .auth .primary--text {
+  color: rgba(63, 64, 64, 0.5) !important;
+  caret-color: rgba(63, 64, 64, 0.5) !important;
+}

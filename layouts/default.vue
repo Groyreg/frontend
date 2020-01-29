@@ -1,5 +1,5 @@
 <template>
-    <v-app id="inspire" :dark="setTheme">
+    <v-app id="inspire" :dark="setTheme" class="app">
 
         <!-- LEFT NAVIGATION-->
         <v-navigation-drawer v-model="drawer" clipped app dark class="gradient"><!-- or `temporary` except `clipped`-->
@@ -56,7 +56,7 @@
         </v-app-bar>
 
 
-        <v-content>
+        <v-content class="content">
             <nuxt/>
         </v-content>
 

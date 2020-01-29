@@ -1,0 +1,17 @@
+.options {
+   &__item {
+     margin-bottom: 8px;
+     font-size: 12px;
+     color: $white;
+
+
+     &:last-child,
+     &:last-of-type {
+       margin-bottom: 0;
+     }
+
+     &:hover {
+       color: rgba(255, 255, 255, 0.4);
+     }
+   }
+}

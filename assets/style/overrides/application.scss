@@ -1,0 +1,93 @@
+.theme--light.v-application.app {
+  background: $bgcColor;
+}
+
+.v-application.app  {
+  & p {
+    margin-bottom: initial;
+  }
+}
+
+// V-btn
+.app {
+  .v-btn {
+    margin-bottom: 8px;
+    text-transform: initial;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &__content {
+      font-size: 14px;
+      letter-spacing: -0.14px;
+      font-weight: 400;
+      color: $white;
+    }
+
+    &[disabled] {
+      .v-btn__content {
+        color: $black;
+      }
+    }
+  }
+  .theme--light.v-btn:not(.v-btn--flat):not(.v-btn--text):not(.v-btn--outlined) {
+    &._facebook {
+      background-color: rgb(43, 120, 191);
+
+      .v-btn__content {
+        .v-icon {
+          position: absolute;
+          top: -1px;
+          left: -5px;
+          margin: 0;
+          width: 20px;
+          height: 20px;
+        }
+
+        &::after {
+          position: absolute;
+          top: -10px;
+          left: -10px;
+          content: "";
+          display: block;
+          width: 36px;
+          height: 36px;
+          border-right: 1px solid rgb(23, 97, 166);
+        }
+      }
+    }
+  }
+}
+
+// V-card
+.app {
+  .v-card:not(.v-sheet--tile):not(.v-card--shaped) {
+    border-radius: 25px;
+  }
+}
+
+// V-tooltip
+.app {
+  .v-tooltip {
+    &__content {
+      padding: 16px 9px;
+      background: $blue;
+      border-radius: 15px;
+      opacity: 0.9;
+    }
+  }
+}
+
+// main content
+.content {
+  display: block !important;
+
+  .v-content__wrap {
+    display: flex;
+    flex: 0 1 auto;
+    justify-content: center;
+  }
+}
+
+

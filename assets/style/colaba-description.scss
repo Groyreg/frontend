@@ -1,0 +1,36 @@
+.colaba-description {
+  margin-bottom: 65px;
+  padding-left: 19px;
+  border-left: 4px solid $blue;
+
+  &__header {
+    margin-bottom: 27px;
+    display: flex;
+
+    &-title {
+      margin-bottom: 7px;
+      font-size: 12px;
+      letter-spacing: -0.12px;
+      color: $blue;
+    }
+
+    &-description {
+      font-size: 10px;
+      letter-spacing: -0.1px;
+      color: rgb(179, 187, 190);
+    }
+  }
+
+  &__photo {
+    margin-right: 10px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: grey;
+  }
+
+  &__text {
+    font-size: 18px;
+    letter-spacing: 0.09px;
+  }
+}
