@@ -26,11 +26,12 @@
                     </span>
 
                     <span class="colaba-nav__element-container _full">
-                        <span class="colaba-nav__element-author">{{colaba.author}}</span>
                         <span class="colaba-nav__element-wrapper">
+                            <span class="colaba-nav__element-container _full">
+                                <span class="colaba-nav__element-author">{{colaba.author}}</span>
+                                <span class="colaba-nav__element-wrapper">
                             <span class="colaba-nav__element-date">Создано: {{colaba.date}}</span>
-
-                            <span class="colaba-nav__element-container">
+                            <span class="colaba-nav__element-container" v-if="isAdmin">
                                 <span v-if="colaba.isDone & !colaba.isVoted" class="colaba-nav__review">
                                     <span class="colaba-nav__review-status">Завершено!</span>
                                     <span class="colaba-nav__element-container _flex">
@@ -51,6 +52,9 @@
                                 </span>
                             </span>
                         </span>
+                            </span>
+                            <v-btn color="primary" v-if="!isAdmin">Участвовать</v-btn>
+                        </span>
                     </span>
                 </span>
                 </span>
@@ -59,11 +63,11 @@
     </section>
 </template>
 
-
 <script>
   export default {
     data() {
       return {
+        isAdmin: true,
         tabs: [
           {
             id: 0,

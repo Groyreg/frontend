@@ -1,10 +1,12 @@
 .colaba-nav {
   margin-top: 12px;
   display: block;
+  flex-shrink: 0;
   height: auto;
   width: 589px;
   background-color: $white;
   border-radius: 15px;
+  box-shadow: 0 5px 33px 1.8px rgba(130, 168, 181, 0.1);
 
   &__header {
     padding: 18px 29px 0;

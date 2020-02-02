@@ -1,0 +1,47 @@
+.nav {
+  margin-right: 61px;
+
+  &__header {
+    margin-bottom: 53px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo {
+    margin-right: 5px;
+  }
+
+  &__heading {
+    font-size: 40px;
+    color: $blue;
+  }
+
+  &__add {
+    margin-bottom: 16px;
+  }
+
+  &__list {
+    padding: 0;
+    list-style-type: none;
+  }
+
+  &__item {
+    margin-bottom: 16px;
+    font-size: 12px;
+    cursor: pointer;
+
+    &:last-child,
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    &:hover,
+    &._active {
+      color: $blue;
+    }
+
+    &._active {
+      cursor: default;
+    }
+  }
+}
