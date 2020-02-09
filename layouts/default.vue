@@ -1,5 +1,5 @@
 <template>
-    <v-app id="inspire" :dark="setTheme">
+    <v-app id="inspire" :dark="setTheme" class="app">
 
         <!-- LEFT NAVIGATION-->
         <v-navigation-drawer v-model="drawer" clipped app dark class="gradient"><!-- or `temporary` except `clipped`-->
@@ -56,8 +56,10 @@
         </v-app-bar>
 
 
-        <v-content>
-            <nuxt/>
+        <v-content class="content">
+            <Nav />
+            <nuxt />
+            <Profile />
         </v-content>
 
         <!--FOOTER-->
@@ -78,11 +80,15 @@
 <script>
     // import {mapGetters} from 'vuex';
     import MenuList from '~/components/navigation/MenuList.vue'
+    import Nav from '~/components/nav/Nav.vue'
+    import Profile from '~/components/profile/Profile.vue'
     import {mdiLoginVariant, mdiCommentProcessingOutline, mdiFacebook, mdiInstagram, mdiMenu} from '@mdi/js'
 
     export default {
         components: {
-            MenuList
+            MenuList,
+            Nav,
+            Profile
         },
         created() {
             this.$store.dispatch('baseUrlForStatic');

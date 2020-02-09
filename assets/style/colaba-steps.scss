@@ -1,0 +1,145 @@
+.colaba-steps {
+  margin-bottom: 65px;
+
+  &__item {
+    margin-bottom: 8px;
+    padding: 10px 16px 8px 13px;
+    border-radius: 16px;
+    background-color: rgb(230, 235, 237);
+
+    &-wrapper {
+      display: flex;
+
+      &._sb {
+        justify-content: space-between;
+      }
+    }
+
+    &-container {
+      margin-bottom: 8px;
+
+
+      &:last-child,
+      &:last-of-type {
+        margin-bottom: 0;
+
+        .colaba-steps__item {
+          &-control {
+            display: none;
+          }
+        }
+      }
+
+      &._active {
+        .colaba-steps__item {
+          background-color: rgba(0, 191, 255, 0.2);
+
+          &-title {
+            color: $blue;
+          }
+        }
+
+        .colaba-steps__options {
+          &-item {
+            background-color: $blue;
+          }
+        }
+      }
+
+      &._done {
+        .colaba-steps__item {
+          background-color: $green-light;
+
+          &-title {
+            color: $white;
+          }
+
+          &-status,
+          &-icon {
+            display: block;
+          }
+        }
+
+        .colaba-steps__options {
+          &-item {
+            background-color: rgba(0, 0, 0, 0.1);
+          }
+        }
+      }
+    }
+
+    &-step {
+      margin-bottom: 8px;
+      padding-left: 14px;
+      font-size: 12px;
+      color: rgb(179, 187, 190);
+    }
+
+    &-title {
+      font-size: 14px;
+      font-weight: bold;
+      color: #000000;
+    }
+
+    &-status {
+      margin-left: 7px;
+      display: none;
+      font-size: 12px;
+      color: $white;
+    }
+
+    &-icon {
+      display: none;
+    }
+
+    &-control {
+      margin-bottom: 9px;
+      margin-left: 14px;
+      width: 4px;
+      height: 20px;
+      background-color: rgb(242, 245, 246);
+    }
+  }
+
+  &__admin {
+    margin-top: 8px;
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    outline: none;
+
+    &-icon {
+      margin-right: 7px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: rgb(245, 247, 248);
+    }
+
+    &-text {
+      font-size: 12px;
+      color: rgb(162, 175, 180);
+    }
+  }
+
+  &__options {
+    margin-left: 15px;
+    cursor: pointer;
+
+    &-item {
+      margin-bottom: 2px;
+      display: block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background-color: rgb(183, 183, 183, 0.3);
+
+      &:last-child,
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

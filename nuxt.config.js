@@ -22,7 +22,7 @@ export default {
         link: [{rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}]
     },
     loading: {color: '#3B8070'},
-    css: ['~assets/fonts/fonts.css' /*'~/assets/style/route_transitions.scss' */],
+    css: ['~assets/fonts/fonts.css', '~/assets/style/index.scss'],
 
     vuetify: {
         defaultAssets: false,
@@ -35,12 +35,11 @@ export default {
                 light: {
                     // https://vuetifyjs.com/ru/customization/theme
                     secondary: colors.indigo.accent1,
-                    accent: colors.deepOrange.accent2,
+                    accent: colors.green.accent3,
                     darken: colors.grey.darken3,
-                    /*
-                    primary: colors.blue.lighten5,
-                    info: colors.teal.lighten1,
-                    */
+                    primary: colors.lightBlue.accent2,
+
+                    // info: colors.teal.lighten1,
                 },
                 dark: {
                     darken: colors.grey.lighten3,

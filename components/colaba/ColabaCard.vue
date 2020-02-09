@@ -1,147 +1,63 @@
 <template>
-    <v-card>
+    <v-card class="card">
         <FloatingAction/>
 
-        <v-list-item two-line :dark="!isDark" class="py-5 grey darken-3">
-
-            <v-list-item-content>
-                <v-list-item-subtitle class="pb-2 text-uppercase font-weight-light">Колаба</v-list-item-subtitle>
-                <v-list-item-title class="headline">Установка шлагбаума</v-list-item-title>
-            </v-list-item-content>
+        <v-list-item two-line :dark="!isDark" class="card__header-wrapper">
+            <header class="card__header">
+                <p class="card__header-label">Коллаба</p>
+                <v-text-field class="card__header-title" label="Введите название" />
+            </header>
         </v-list-item>
 
-        <v-container>
-            <h4 class="mb-3 title">План действий</h4>
+        <v-container class="card__body">
+            <!-- Описание >>> -->
+            <h4 class="card__body-title">Описание</h4>
+            <Description />
+            <!-- Описание >>> -->
 
-            <!-- ПАНЕЛЬ >>> -->
-            <v-expansion-panels v-model="activePanel" :dark="!isDark">
-                <v-expansion-panel v-for="(step, i) in steps" :key="i"
-                                   hide-actions
-                                   :readonly="isStepDone(i)"
-                                   :class="{success: isStepDone(i)}">
-
-                    <!-- HEADER >>> -->
-                    <v-expansion-panel-header :expand-icon=mdiChevronDown>
-                        <v-row align="center" class="spacer" no-gutters>
-                            <v-col cols="4" class="font-weight-light">
-                                <span v-if="isStepDone(i)" class="font-italic">Завершено</span>
-                                <v-row v-else>
-                                    <v-col cols="1">
-                                        <v-icon small v-if="i === activeStepIndex" color="accent">
-                                            {{mdiCheckboxBlankCircle}}
-                                        </v-icon>
-                                    </v-col>
-                                    <v-col>Шаг {{i +1}}</v-col>
-                                </v-row>
-                            </v-col>
-                            <v-divider class="mr-3" vertical/>
-                            <strong v-html="step.title"/>
-                        </v-row>
-                    </v-expansion-panel-header>
-                    <!-- <<< HEADER-->
-
-                    <!-- КОНТЕНТ >>> -->
-                    <v-expansion-panel-content>
-                        <v-divider/>
-                        <v-card-text style="white-space: pre-line;" color="white">
-                            <!--TODO - delete v-if-->
-                            <div v-if="i !== activeStepIndex">
-
-                                <v-row align="center">
-
-                                    <v-col cols="2" class="hidden-sm-and-down">
-                                        <v-img :src='image' alt="Sunny image" width="45"/>
-                                    </v-col>
-
-                                    <v-col>Нужно: {{total}} ₽</v-col>
-
-                                    <v-col>Собрано: {{currentBalance}} ₽</v-col>
-
-                                    <v-col>
-                                        <v-checkbox input-value="true" label="Уже оплатил" color="success"/>
-                                    </v-col>
-
-                                </v-row>
-
-                                <v-slider
-                                        v-model="percentOfDone"
-                                        thumb-label="always"
-                                        thumb-color="accent"
-                                        color="success"
-                                        :prepend-icon="mdiPercent"
-                                        readonly
-                                />
-                            </div>
-                            <!--TODO - delete v-if-->
-                            <div v-else>
-                                <h4 class="title mt-2">Сделай выбор</h4>
-                                <v-list>
-                                    <v-list-item-group v-model="selection" mandatory>
-                                        <template v-for="(item, i) in variants">
-                                            <v-list-item :key="`item-${i}`" :value="item">
-
-                                                <template v-slot:default="{ active, toggle }">
-                                                    <v-list-item-content>
-                                                        <v-list-item-title v-text="item"/>
-                                                    </v-list-item-content>
-
-                                                    <v-list-item-action>
-                                                        <v-checkbox
-                                                                :input-value="active" :true-value="item"
-                                                                @click="toggle"/>
-                                                    </v-list-item-action>
-                                                </template>
-                                            </v-list-item>
-                                        </template>
-                                    </v-list-item-group>
-                                </v-list>
-                            </div>
-                            <!--TODO - delete v-if-->
-
-                            {{steps[i].text}}
-                        </v-card-text>
-                    </v-expansion-panel-content>
-                    <!-- КОНТЕНТ  -->
-
-                </v-expansion-panel>
-            </v-expansion-panels>
-            <!-- <<< ПАНЕЛЬ -->
-
-            <!--            <v-btn text class="my-2" color="accent">➕ добавить шаг</v-btn>-->
-            <v-btn text class="my-2">редактировать</v-btn>
-
-            <v-divider class="my-2"/>
+            <!-- План >>> -->
+            <h4 class="card__body-title">План коллабы</h4>
+            <Steps />
+            <!-- План >>> -->
 
             <!-- Участники >>> -->
-            <Members/>
+            <Members />
             <!-- <<< Участники -->
 
-            <section>
-                <h4 class="title mb-2">Обсуждение</h4>
-                <v-textarea
-                        solo filled auto-grow clearable counter label="Оставьте сообщение"
-                        hint="Ваше сообщение закрепится в топе обсуждения"
-                        :value="text"/>
-            </section>
+            <!-- Виджеты >>> -->
+            <h4 class="card__body-title">Виджеты</h4>
+            <Widgets />
+            <!-- Виджеты >>> -->
 
-            <v-divider/>
+            <!-- Виджеты >>> -->
+<!--            <h4 class="card__body-title">Обсуждение</h4>-->
+            <Discussion />
+            <!-- Виджеты >>> -->
 
-            <v-btn block color="accent" class="my-5">Опубликовать</v-btn>
+            <v-btn block x-large color="primary">Создать коллабу</v-btn>
 
         </v-container>
     </v-card>
 </template>
 
 <script>
-    import Members from '~/components/colaba/Members.vue'
-    import FloatingAction from '~/components/colaba/FloatingAction.vue'
+
+    import Description from '~/components/colaba/components/description/Description.vue'
+    import Discussion from '~/components/colaba/components/discussion/Discussion.vue'
+    import Members from '~/components/colaba/components/members/Members.vue'
+    import Steps from '~/components/colaba/components/steps/Steps.vue'
+    import Widgets from '~/components/colaba/components/widgets/Widgets.vue'
     import {
         mdiCheckboxBlankCircle, mdiPercent, mdiChevronDown, mdiCheckboxBlankOutline, mdiCheckboxMarkedOutline
     } from '@mdi/js'
 
     export default {
         components: {
-            Members, FloatingAction
+          Description,
+          Discussion,
+          Members,
+          Steps,
+          Widgets
         },
         data() {
             return {
